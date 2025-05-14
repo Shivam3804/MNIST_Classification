@@ -1,35 +1,45 @@
-# MNIST Digit Classification
+# MNIST & Fashion-MNIST Classification (FFNN vs CNN)
 
-This project involves building and comparing two neural network models for classifying handwritten digits using the MNIST dataset.
+This project compares two types of neural networks — **Feedforward Neural Network (FFNN)** and **Convolutional Neural Network (CNN)** — on two popular image datasets:
+- **MNIST** (handwritten digits)
+- **Fashion-MNIST** (Zalando's fashion items)
 
-## Overview
+The goal is to analyze performance differences between basic and deep architectures using clean, standardized datasets.
 
-The MNIST dataset is a benchmark dataset consisting of 70,000 grayscale images of handwritten digits (0–9), each of size 28x28 pixels. The goal is to train the two models and evaluate them.
 
-## Models Implemented
+## Datasets Used
 
-### 1. Fully Connected Neural Network (Dense Only)
-- **Architecture**: Flatten -> Dense(128, ReLU) -> Dense(10, Softmax)
-- **Test Accuracy**: **~96.91%**
+1. **MNIST Dataset**
+   - 28x28 grayscale images
+   - 10 classes (digits 0–9)
 
-### 2. Convolutional Neural Network (CNN)
-- **Architecture**:  
-  Conv2D(32, 3x3, ReLU) -> MaxPooling2D(2x2) -> Flatten -> Dense(128, ReLU) → Dense(10, Softmax)
-- **Test Accuracy**: **~98.20%**
+2. **Fashion-MNIST Dataset**
+   - 28x28 grayscale images
+   - 10 classes (e.g., Shirt, Sneaker, Bag)
 
-## Technologies Used
-- Python
-- TensorFlow / Keras
-- Jupyter Notebook
+Both datasets are included via `tensorflow.keras.datasets`.
 
-## Key Learnings
-- Understanding of image data preprocessing.
-- Comparison of fully connected vs. convolutional architectures.
-- Experience with TensorFlow model design, training, and evaluation.
+---
 
-## Results Summary
+## Models Compared
 
-| Model                  | Test Accuracy |
-|------------------------|---------------|
-| Dense Only             | ~96.91%       |
-| CNN (with Conv2D)      | ~98.20%       |
+### 1. **Feedforward Neural Network (FFNN)**
+- Flatten -> Dense(128) -> Output(10)
+- Simple structure, no spatial feature extraction
+
+### 2. **Convolutional Neural Network (CNN)**
+- Conv2D -> MaxPooling -> Dropout -> Flatten → Dense layers
+- Captures spatial features and improves accuracy
+
+---
+
+## 🎯 Results Summary
+
+| Dataset        | Model Type | Accuracy (Test) |
+|----------------|------------|-----------------|
+| MNIST          | FFNN       | ~96.9%            |
+| MNIST          | CNN        | ~98.2%          |
+| Fashion-MNIST  | FFNN       | ~87.8%            |
+| Fashion-MNIST  | CNN        | ~90.9%            |
+
+> CNN outperforms FFNN on both datasets due to its spatial learning ability.
