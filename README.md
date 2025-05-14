@@ -9,20 +9,18 @@ The MNIST dataset is a benchmark dataset consisting of 70,000 grayscale images o
 ## Models Implemented
 
 ### 1. Fully Connected Neural Network (Dense Only)
-- **Architecture**: Flatten → Dense(128, ReLU) → Dense(10, Softmax)
+- **Architecture**: Flatten -> Dense(128, ReLU) -> Dense(10, Softmax)
 - **Test Accuracy**: **~96.91%**
 
 ### 2. Convolutional Neural Network (CNN)
 - **Architecture**:  
-  Conv2D(32, 3x3, ReLU) → MaxPooling2D(2x2) →  
-  Conv2D(64, 3x3, ReLU) → MaxPooling2D(2x2) →  
-  Flatten → Dense(64, ReLU) → Dense(10, Softmax)
+  Conv2D(32, 3x3, ReLU) -> MaxPooling2D(2x2) -> Flatten -> Dense(128, ReLU) → Dense(10, Softmax)
 - **Test Accuracy**: **~98.20%**
 
 ## Technologies Used
 - Python
 - TensorFlow / Keras
-- Jupyter Notebook / Google Colab
+- Jupyter Notebook
 
 ## Key Learnings
 - Understanding of image data preprocessing.
